@@ -1,0 +1,21 @@
+echo "!!! WARNING !!! WARNING !!! WARNING !!!
+!!! WARNING !!! WARNING !!! WARNING !!!
+!!! WARNING !!! WARNING !!! WARNING !!!
+
+This script WILL CHANGE the permissions to all files and folders recursivelly:
+755 to dirs and 644 to files
+
+Are you in the RIGHT PLACE? You are in `pwd`
+
+HIT ENTER TO CONTINUE | CTRL+C TO CANCEL"
+
+read
+
+echo "ARE YOU REALLY REALLY SURE? YOU'RE IN `pwd`
+
+HIT ENTER TO CONTINUE | CTRL+C TO CANCEL"
+
+read
+
+find -type d -exec chmod -c 755 {} \; -print
+find -type f -exec chmod -c 644 {} \; -print

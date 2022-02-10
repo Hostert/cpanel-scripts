@@ -1,0 +1,9 @@
+# TODO
+# Document and ask for user input to choose what plugin to install
+
+cd /usr/local/cpanel/base/3rdparty/roundcube
+curl -s https://getcomposer.org/installer | php
+composer require teon/automatic_addressbook_ng
+php composer.phar install
+cd ~
+

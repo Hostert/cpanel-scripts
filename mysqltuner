@@ -1,0 +1,20 @@
+wget -q http://mysqltuner.pl/ -O mysqltuner.pl
+wget -q https://raw.githubusercontent.com/major/MySQLTuner-perl/master/basic_passwords.txt -O basic_passwords.txt
+wget -q https://raw.githubusercontent.com/major/MySQLTuner-perl/master/vulnerabilities.csv -O vulnerabilities.csv
+
+case $1 in
+
+  help|--help)
+    perl mysqltuner.pl --help
+  ;;
+
+  *)
+    
+    # máximo de 9 argumentos    
+    perl mysqltuner.pl $1 $2 $3 $4 $5 $6 $7 $8 $9
+  
+  ;;
+
+esac
+
+rm -f mysqltuner.pl basic_passwords.txt vulnerabilities.csv

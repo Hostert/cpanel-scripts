@@ -1,0 +1,20 @@
+if [ -e /root/cpanel3-skel/.cpanel-logs ]
+then
+  echo 'Rotação de logs do cPanel existente'
+else
+
+  mkdir /root/cpanel3-skel > /dev/null 2>&1
+  echo 'Configurando rotação de logs do cPanel'
+
+  echo '  
+archive-logs=1
+remove-old-archived-logs=1
+' > /root/cpanel3-skel/.cpanel-logs
+
+fi
+
+ls /var/cpanel/users | while read user; do
+  rm -f /home/$user/.cpanel-logs
+  cp -v /root/cpanel3-skel/.cpanel-logs /home/$user/
+  chown $user.$user /home/$user/.cpanel-logs
+done

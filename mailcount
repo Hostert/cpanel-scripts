@@ -1,0 +1,1 @@
+awk '$3 ~ /^cwd/{print $3}' /var/log/exim_mainlog | sort | uniq -c | sed "s|^ *||g" | sort -nr

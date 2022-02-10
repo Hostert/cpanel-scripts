@@ -1,0 +1,1 @@
+watch -n 1 --no-title mysqladmin processlist

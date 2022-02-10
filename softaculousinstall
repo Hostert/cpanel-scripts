@@ -1,0 +1,1 @@
+curl -ks http://files.softaculous.com/install.sh | sh

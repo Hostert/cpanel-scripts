@@ -1,0 +1,45 @@
+#!/bin/bash
+###########
+
+# Colors
+black()		{ printf '\e[0m'                ;}
+black_bg()	{ printf '\e[40m'               ;}
+red()		{ printf '\e[1;31m'             ;}
+red_bg()	{ printf '\e[41m'               ;}
+red_bloock()	{ echo -en `red_bg` `black_bg`  ;}
+green()		{ printf '\e[1;32m'             ;}
+green_bg()	{ printf '\e[42m'               ;}
+green_block()	{ echo -en `green_bg` `black_bg`;}
+blue()		{ printf '\e[1;34m'             ;}
+blue_bg()	{ printf '\e[44m'               ;}
+blue_block()	{ echo -en `blue_bg` `black_bg` ;}
+
+version=1.17.0
+
+URL="https://raw.githubusercontent.com/Hostert/cpanel-scripts/master"
+
+# Header
+echo -e "
+`blue_block`
+`blue_block` [script v$version]
+`blue_block`
+`blue_block` `hostname`
+`blue_block` `date`
+`blue_block`
+"
+
+# Update
+remote=`curl -s $URL/cpscript | grep "version=" | cut -d= -f2 | sed -n '1p'`
+
+if [ "$version" != "$remote" ]; then
+	curl -s $URL/update | sh
+	exit 0
+fi
+
+# Main
+if [ $1 ]; then
+	# 9 args max
+	bash <(curl -s $URL/$1) $2 $3 $4 $5 $6 $7 $8 $9
+else
+	curl -s $URL/help | sh
+fi

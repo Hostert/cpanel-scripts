@@ -1,0 +1,19 @@
+# Formatação de texto
+black()         { printf '\e[0m'                ;}
+black_bg()      { printf '\e[40m'               ;}
+red()           { printf '\e[1;31m'             ;}
+red_bg()        { printf '\e[41m'               ;}
+red_bloock()    { echo -en `red_bg` `black_bg`  ;}
+green()         { printf '\e[1;32m'             ;}
+green_bg()      { printf '\e[42m'               ;}
+green_block()   { echo -en `green_bg` `black_bg`;}
+blue()          { printf '\e[1;34m'             ;}
+blue_bg()       { printf '\e[44m'               ;}
+blue_block()    { echo -en `blue_bg` `black_bg` ;}
+
+whmuser='cptkt_cpscript'
+whmpass=`mkpasswd -l 12`
+echo "`blue_block` Comando: `green`/scripts/autorepair create_temp_reseller_for_ticket_access`black`
+`blue_block` Login: `green`$whmuser $whmpass`black`
+`blue_block` URL: `green` https://`hostname`:2087/login/?user=$whmuser&pass=$whmpass`black`
+"

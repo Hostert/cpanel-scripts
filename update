@@ -1,0 +1,6 @@
+URL="https://raw.githubusercontent.com/Hostert/cpanel-scripts/master"
+
+wget -q $URL/cpscript -O /usr/bin/cpscript
+chmod +x /usr/bin/cpscript
+echo -e "Script updated. Run it again, please ;)\n"
+

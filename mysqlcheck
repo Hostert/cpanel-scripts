@@ -1,0 +1,2 @@
+mysqlcheck -Ao --auto-repair
+

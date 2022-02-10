@@ -1,0 +1,4 @@
+cd /etc/valiases/
+cat * | egrep -v '@|fail' | awk '{print $2}' | while read user; do replace "*: $user" "*: :fail: No Such User Here" -- /etc/valiases/*; done
+cd - >/dev/null
+

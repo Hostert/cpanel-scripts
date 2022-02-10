@@ -1,0 +1,22 @@
+# Formatação de texto
+black()         { printf '\e[0m'                ;}
+black_bg()      { printf '\e[40m'               ;}
+red()           { printf '\e[1;31m'             ;}
+red_bg()        { printf '\e[41m'               ;}
+red_bloock()    { echo -en `red_bg` `black_bg`  ;}
+green()         { printf '\e[1;32m'             ;}
+green_bg()      { printf '\e[42m'               ;}
+green_block()   { echo -en `green_bg` `black_bg`;}
+blue()          { printf '\e[1;34m'             ;}
+blue_bg()       { printf '\e[44m'               ;}
+blue_block()    { echo -en `blue_bg` `black_bg` ;}
+
+echo "`service httpd status`
+`blue_block` Quantidade de processos: `green; ps ax | grep httpd | wc -l; black`
+`blue_block` Quantidade de acessos por domínios:
+`green; /usr/local/cpanel/whostmgr/bin/whostmgr2 ./apachestatus | grep nowrap | awk {'print $2'} | cut -d ">" -f2 | cut -d "<" -f1 | sort | uniq -c | sort -n; black`
+`blue_block` Número de conexões por IP: 
+`green; PORT=80;EXCLUDE_STATES="TIME_WAIT|FIN_WAIT1|FIN_WAIT2";ALLOWED=$(grep -Evh "^#|^$" /etc/{apf,csf}/*allow* 2>/dev/null|awk '{print $1}'|xargs);[ "$ALLOWED" ] && ALLOWED="127.0.0.1 $ALLOWED" || ALLOWED="127.0.0.1";LISTEN="0.0.0.0 $(ifconfig|grep "inet addr:"|awk '{print $2}'|cut -f2 -d:|xargs)";netstat -nt| grep -E -v -w "${EXCLUDE_STATES:-NOTHING_TO_EXCLUDE}"| grep -E ${LISTEN// /:$PORT|}:$PORT| awk '{print $5}'| awk -F: '{print $(NF-1)}'| sort | uniq -c| grep -E -v "${ALLOWED// /|}"| sort -n | tail; black`
+`blue_block` Número de conexões por arquivo:
+`green; lynx -dump localhost/whm-server-status | grep GET | sort | uniq -c | sort -n; black`
+"

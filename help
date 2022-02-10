@@ -1,0 +1,28 @@
+echo -e "\t USAGE: cpscript [OPTION] [PARAM 1] ... [PARAM N]
+
+\t [OPTION] \t\t [DESCRIPTION]
+
+\t apachestatus \t\t Apache Status
+\t blcheck \t\t Blacklist checking
+\t catchalltofail \t Change every default accounts from 'catch-all' to 'fail'
+\t checkapache \t\t Check and count connection's status to apache
+\t cplogrotation \t\t Configure log rotation for individual cPanel users
+\t cptkt \t\t\t Information needed to open a support ticket on cPanel.net
+\t cwafinstall \t\t COMODO WAF free WHM plugin install
+\t dd \t\t\t Disk IO speed test
+\t eximclear \t\t A tool for clearing out the exim queue
+\t fixperms \t\t Fix permissions
+\t\t\t\t [755 for dirs][644 for files]
+\t\t\t\t !!! WARNING !!! You SHOULD be in the right directory or YOU WILL CERTAINLY BREAK your entire system!
+\t mailcount \t\t Count mail sent by files in the current exim_mainlog file. 
+\t mysqlcheck \t\t Check and repair MySQL|MariaDB tables
+\t mysqltuner \t\t Check MySQL|MariaDB and suggests optimizations
+\t portcheck \t\t Check port conections
+\t rc_plugin_install \t WIP: Install RoundCube's plugins
+\t scan \t\t\t Scans accounts/servers for malware/shells via clamav
+\t softaculousinstall \t Softaculous install
+\t ssp \t\t\t Check many itens [official cPanel's script]
+\t watchapache \t\t Watch apache connections
+\t watchmysql \t\t Watch MySQL|MariaDB connections
+\t whm \t\t\t Login to WHM without root password
+"

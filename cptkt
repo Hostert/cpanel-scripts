@@ -1,0 +1,27 @@
+# Formatação de texto
+black()         { printf '\e[0m'                ;}
+black_bg()      { printf '\e[40m'               ;}
+red()           { printf '\e[1;31m'             ;}
+red_bg()        { printf '\e[41m'               ;}
+red_bloock()    { echo -en `red_bg` `black_bg`  ;}
+green()         { printf '\e[1;32m'             ;}
+green_bg()      { printf '\e[42m'               ;}
+green_block()   { echo -en `green_bg` `black_bg`;}
+blue()          { printf '\e[1;34m'             ;}
+blue_bg()       { printf '\e[44m'               ;}
+blue_block()    { echo -en `blue_bg` `black_bg` ;}
+
+echo -e "`blue_block` IP: \t\t `green; curl -s http://cpanel.com/showip.shtml; black`
+`blue_block` Access ID: \t `green; /usr/local/cpanel/cpanel -S; black`
+`blue_block` Tab name: \t `green; hostname; black`
+`blue_block` SSH IP: \t `green; egrep ^ListenAddress /etc/ssh/sshd_config | awk '{print $2}'; black`
+`blue_block` SSH port: \t `green; egrep ^Port /etc/ssh/sshd_config | awk '{print $2}'; black`
+`blue_block` URL: \t\t `green`https://tickets.cpanel.net/review/login.cgi`black`
+"
+
+csf -a 208.74.121.100 cPanel Houston Office > /dev/null
+csf -a 208.74.121.101 cPanel Houston Office > /dev/null
+csf -a 208.74.121.102 cPanel Houston Office > /dev/null
+csf -a 208.74.121.103 cPanel Houston Office > /dev/null
+csf -a 208.74.125.2 cPanel New York Alternate > /dev/null
+csf -a 69.175.92.60 CloudLinux Support > /dev/null

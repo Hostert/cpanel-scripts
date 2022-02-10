@@ -1,0 +1,18 @@
+# Formatação de texto
+black()         { printf '\e[0m'                ;}
+black_bg()      { printf '\e[40m'               ;}
+red()           { printf '\e[1;31m'             ;}
+red_bg()        { printf '\e[41m'               ;}
+red_bloock()    { echo -en `red_bg` `black_bg`  ;}
+green()         { printf '\e[1;32m'             ;}
+green_bg()      { printf '\e[42m'               ;}
+green_block()   { echo -en `green_bg` `black_bg`;}
+blue()          { printf '\e[1;34m'             ;}
+blue_bg()       { printf '\e[44m'               ;}
+blue_block()    { echo -en `blue_bg` `black_bg` ;}
+
+wget -q https://waf.comodo.com/cpanel/cwaf_client_install.sh
+bash cwaf_client_install.sh -- --prompt=readline
+rm -fv cwaf_client_install.sh
+rm -fv /var/cpanel/cwaf/setup.sh
+
